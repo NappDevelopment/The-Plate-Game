@@ -13,6 +13,8 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var persistenceManager: PersistenceManager?
+    var stateManager: StateManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,8 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         splitViewController.delegate = self
 
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
-        controller.managedObjectContext = self.persistentContainer.viewContext
+        let controller = masterNavigationController.topViewController as! StateListTableViewController
+        
+        persistenceManager = PersistenceManager(withContext: self.persistentContainer.viewContext)
+        stateManager = StateManager(persistenceManager: persistenceManager!)
+        controller.stateManager = stateManager
+        
         return true
     }
 

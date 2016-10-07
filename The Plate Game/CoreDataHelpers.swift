@@ -33,6 +33,8 @@ func importJSONData(context: NSManagedObjectContext) {
                 newState.area = (stateData["area"].int32)!
                 newState.elevation = (stateData["elevation"].int32)!
                 newState.population = (stateData["population"].int64)!
+                
+                newState.isFound = false
             }
         }
         
