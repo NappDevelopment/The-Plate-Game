@@ -18,17 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
+        //let splitViewController = self.window!.rootViewController as! UISplitViewController
+        //let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        //navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        //splitViewController.delegate = self
 
-        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! StateListTableViewController
+        //let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
+        //let controller = masterNavigationController.topViewController as! StateListTableViewController
+        
+        let stateList = StateListTableViewController()
+        let vc = UINavigationController(rootViewController: stateList)
         
         persistenceManager = PersistenceManager(withContext: self.persistentContainer.viewContext)
         stateManager = StateManager(persistenceManager: persistenceManager!)
-        controller.stateManager = stateManager
+        stateList.stateManager = stateManager
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
         
         return true
     }

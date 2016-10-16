@@ -37,12 +37,16 @@ class StateListTableViewController: UITableViewController, StateManagerDelegate 
 
         updateNavigationItemTitle()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.register(StateTableViewCell.self, forCellReuseIdentifier: StateTableViewCell.identifier)
+        
         // Must uncomment to load data into Core Data
         //importJSONData(context: self.managedObjectContext!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+       // self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
