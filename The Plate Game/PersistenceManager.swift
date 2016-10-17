@@ -25,6 +25,7 @@ final class PersistenceManager {
             
             if storedJSONVersion == 0 {
                 importJSONData(context: context, fromJSON: json)
+                UserDefaults.standard.set(jsonVersion, forKey: "jsonVersion")
             } else if storedJSONVersion != jsonVersion {
                 fatalError("Must write this to import new data")
             }
