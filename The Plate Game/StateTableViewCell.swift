@@ -14,14 +14,15 @@ class StateTableViewCell: UITableViewCell {
     var stateNameLabel = UILabel()
     var stateNicknameLabel = UILabel()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let stackView = UIStackView(arrangedSubviews: [stateNameLabel, stateNicknameLabel])
-
+        
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
+        stackView.spacing = 4
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stateNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +30,9 @@ class StateTableViewCell: UITableViewCell {
         
         stateNicknameLabel.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .vertical)
         stateNicknameLabel.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
-
+        
+        stateNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        
         self.addSubview(stackView)
         
         let margins = self.layoutMarginsGuide
@@ -37,9 +40,13 @@ class StateTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
+            stackView.topAnchor.constraint(equalTo: margins.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
+            ])
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     var stateName: String? {

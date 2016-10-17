@@ -8,41 +8,39 @@
 
 import UIKit
 
-class StateListTableViewController: UITableViewController, StateManagerDelegate {
+protocol StateListTableViewControllerDelegate {
+    func didSelect(state: State)
+}
 
-    var detailViewController: DetailViewController? = nil
+
+class StateListTableViewController: UITableViewController, StateManagerDelegate {
     
     var tableViewDataSource: StateListTableViewDataSource?
-    var tableViewDelegate: StateListTableViewDelegate?
     
     var stateManager: StateManager!
     var states: [State] {
         return stateManager.states
     }
+    
+    var selectedState: State {
+        return states[tableView.indexPathForSelectedRow?.row ?? 0]
+    }
 
+    var delegate: StateListTableViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
         
         stateManager.delegate = self
 
         tableViewDataSource = StateListTableViewDataSource(stateManager: stateManager)
-        tableViewDelegate = StateListTableViewDelegate(stateManager: stateManager)
-        tableView.dataSource = tableViewDataSource
-        tableView.delegate = tableViewDelegate
 
-        updateNavigationItemTitle()
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.register(StateTableViewCell.self, forCellReuseIdentifier: StateTableViewCell.identifier)
-        
-        // Must uncomment to load data into Core Data
-        //importJSONData(context: self.managedObjectContext!)
+        tableView.dataSource = tableViewDataSource
+
+        updateNavigationItemTitle()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,19 +48,6 @@ class StateListTableViewController: UITableViewController, StateManagerDelegate 
         super.viewWillAppear(animated)
     }
 
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = states[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
 
     // MARK: - Table View
 
@@ -72,6 +57,28 @@ class StateListTableViewController: UITableViewController, StateManagerDelegate 
     
     func updateNavigationItemTitle() {
         self.navigationItem.title = "\(50 - stateManager.foundStateCount) States Remaining"
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let state = stateManager.states[indexPath.row]
+        
+        delegate?.didSelect(state: state)
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let mark = UITableViewRowAction(style: .normal, title: "Mark") { action, index in
+            self.markState(at: index.row)
+            
+            tableView.isEditing = false
+            tableView.reloadRows(at: [index], with: .automatic)
+        }
+        
+        return [mark]
+    }
+    
+    func markState(at index: Int) {
+        let state = stateManager.states[index]
+        
+        stateManager.markState(at: index, asFound: !state.isFound)
     }
 }
 

@@ -16,6 +16,7 @@ final class StateManager {
 
     private var persistenceManager: PersistenceManager
     private(set) var states: [State]
+    
     var foundStateCount: Int {
         return states.filter({$0.isFound}).count
     }

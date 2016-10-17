@@ -10,16 +10,27 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    var detailDescriptionLabel = UILabel()
 
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.name!.description
-            }
+            self.navigationItem.title = detail.name?.description
+            detailDescriptionLabel.text = "Is Found: \(detail.isFound)"
         }
+    }
+    
+    override func loadView() {
+        self.view = UIView()
+        view.backgroundColor = .lightGray
+        detailDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(detailDescriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            detailDescriptionLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            detailDescriptionLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
     }
 
     override func viewDidLoad() {
