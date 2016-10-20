@@ -15,7 +15,7 @@
 		70D6B2B91DA43BCD00694B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2B81DA43BCD00694B14 /* AppDelegate.swift */; };
 		70D6B2BC1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BA1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld */; };
 		70D6B2BE1DA43BCD00694B14 /* StateListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BD1DA43BCD00694B14 /* StateListTableViewController.swift */; };
-		70D6B2C01DA43BCD00694B14 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BF1DA43BCD00694B14 /* DetailViewController.swift */; };
+		70D6B2C01DA43BCD00694B14 /* StateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BF1DA43BCD00694B14 /* StateDetailViewController.swift */; };
 		70D6B2C51DA43BCD00694B14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70D6B2C41DA43BCD00694B14 /* Assets.xcassets */; };
 		70D6B2C81DA43BCD00694B14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D6B2C61DA43BCD00694B14 /* LaunchScreen.storyboard */; };
 		70D6B2D31DA43BCD00694B14 /* The_Plate_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2D21DA43BCD00694B14 /* The_Plate_GameTests.swift */; };
@@ -51,7 +51,7 @@
 		70D6B2B81DA43BCD00694B14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70D6B2BB1DA43BCD00694B14 /* The_Plate_Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Plate_Game.xcdatamodel; sourceTree = "<group>"; };
 		70D6B2BD1DA43BCD00694B14 /* StateListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateListTableViewController.swift; sourceTree = "<group>"; };
-		70D6B2BF1DA43BCD00694B14 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		70D6B2BF1DA43BCD00694B14 /* StateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDetailViewController.swift; sourceTree = "<group>"; };
 		70D6B2C41DA43BCD00694B14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70D6B2C71DA43BCD00694B14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70D6B2C91DA43BCD00694B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				70D6B2BD1DA43BCD00694B14 /* StateListTableViewController.swift */,
 				70C4A4821DA7523C0037FF8C /* StateListTableViewDataSource.swift */,
 				70C4A4841DA753100037FF8C /* StateTableViewCell.swift */,
-				70D6B2BF1DA43BCD00694B14 /* DetailViewController.swift */,
+				70D6B2BF1DA43BCD00694B14 /* StateDetailViewController.swift */,
 			);
 			name = StateList;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				TargetAttributes = {
 					70D6B2B41DA43BCD00694B14 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 49Z72NQ45H;
+						DevelopmentTeam = DUTT58RSQT;
 						ProvisioningStyle = Automatic;
 					};
 					70D6B2CD1DA43BCD00694B14 = {
@@ -303,7 +303,7 @@
 				70D6B2BE1DA43BCD00694B14 /* StateListTableViewController.swift in Sources */,
 				70C4A4851DA753100037FF8C /* StateTableViewCell.swift in Sources */,
 				70D6B2F01DA4430600694B14 /* SwiftyJSON.swift in Sources */,
-				70D6B2C01DA43BCD00694B14 /* DetailViewController.swift in Sources */,
+				70D6B2C01DA43BCD00694B14 /* StateDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,12 +447,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 49Z72NQ45H;
+				DEVELOPMENT_TEAM = DUTT58RSQT;
 				INFOPLIST_FILE = "The Plate Game/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nappdevelopment.The-Plate-Game";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nappdevelopment.theplategame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -460,12 +461,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 49Z72NQ45H;
+				DEVELOPMENT_TEAM = DUTT58RSQT;
 				INFOPLIST_FILE = "The Plate Game/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nappdevelopment.The-Plate-Game";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nappdevelopment.theplategame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

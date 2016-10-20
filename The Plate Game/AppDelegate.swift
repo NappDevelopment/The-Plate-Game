@@ -26,10 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         self.window?.rootViewController = appCoordinator?.rootViewController
         self.window?.makeKeyAndVisible()
-
-        //splitViewController.delegate = self
-
-
         
         return true
     }
@@ -56,6 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(_ application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        
     }
 
     // MARK: - Core Data stack
