@@ -10,26 +10,33 @@ import UIKit
 
 class AppCoordinator: UISplitViewControllerDelegate, StateListTableViewControllerDelegate {
     
-    private let splitViewController: UISplitViewController
-    private let stateListNavigationController: UINavigationController
-    private let stateDetailNavigationController: UINavigationController
+    // MARK: - View Controller References
     
+    private let splitViewController: UISplitViewController
+     let stateListNavigationController: UINavigationController
+     let stateDetailNavigationController: UINavigationController
+    
+    /// Abstract out the root view controller
     var rootViewController: UIViewController {
         return splitViewController
     }
     
+    // MARK: - Initializer
+    
     init(with stateManager: StateManager) {
-        let stateListTableViewController = StateListTableViewController()
-        let stateDetailViewController = DetailViewController()
+        /// Initialize the main view controllers for the split view
+        let stateListTableViewController = StateListTableViewController(stateManager: stateManager)
+        let stateDetailViewController = StateDetailViewController(state: stateManager.states[0])
         
+        /// Initialize the container view controllers
         splitViewController = UISplitViewController()
         stateListNavigationController = UINavigationController(rootViewController: stateListTableViewController)
         stateDetailNavigationController = UINavigationController(rootViewController: stateDetailViewController)
         
+        /// Setup the split view controller
         splitViewController.viewControllers = [stateListNavigationController, stateDetailNavigationController]
         splitViewController.delegate = self
-        stateListTableViewController.stateManager = stateManager
-
+        
         stateListTableViewController.delegate = self
         stateDetailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
     }
@@ -37,13 +44,7 @@ class AppCoordinator: UISplitViewControllerDelegate, StateListTableViewControlle
     // MARK: - Split view
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
-        return false
+        return true
     }
     
     func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController? {
@@ -54,33 +55,28 @@ class AppCoordinator: UISplitViewControllerDelegate, StateListTableViewControlle
         return stateListNavigationController
     }
     
-    func splitViewController(_ splitViewController: UISplitViewController, separateSecondaryFrom primaryViewController: UIViewController) -> UIViewController? {
-        
-        let stateListTableViewController = stateListNavigationController.topViewController as? StateListTableViewController
-        let selectedState = stateListTableViewController?.selectedState
-        let stateDetailViewController = getDetailViewController()
-        
-        stateDetailViewController.detailItem = selectedState
-        
-        return stateDetailNavigationController
-    }
+    // MARK: - Coordinator Methods
     
     func didSelect(state: State) {
-        let stateDetailViewController = getDetailViewController()
-        
-        stateDetailViewController.detailItem = state
-
-        stateListNavigationController.showDetailViewController(stateDetailNavigationController, sender: nil)
-    }
-    
-    func getDetailViewController() -> DetailViewController {
-        let stateDetailViewController = stateDetailNavigationController.topViewController as? DetailViewController ?? DetailViewController()
+        let stateDetailViewController = stateDetailNavigationController.topViewController as? StateDetailViewController ?? StateDetailViewController(state: state)
         
         stateDetailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem
         stateDetailViewController.navigationItem.leftItemsSupplementBackButton = true
         
-        return stateDetailViewController
+        if stateDetailViewController.state != state {
+            stateDetailViewController.state = state
+        }
+        
+        
+        stateListNavigationController.pushViewController(stateDetailViewController, animated: true)
+        //let top = stateListNavigationController.topViewController as? StateListTableViewController
+        //top?.showDetailViewController(stateDetailNavigationController, sender: nil)
+        //stateListNavigationController.pushViewController(stateDetailNavigationController, animated: true)
+        //splitViewController.showDetailViewController(stateDetailViewController, sender: nil)
+        //stateListNavigationController.pushViewController(stateDetailViewController, animated: true)
+        //stateDetailNavigationController.show(stateDetailViewController, sender: nil)
+//        stateListNavigationController.show(stateDetailViewController, sender: nil)
+        //stateListNavigationController.showDetailViewController(stateDetailViewController, sender: nil)
+        //stateListNavigationController.showDetailViewController(stateDetailNavigationController, sender: nil)
     }
-
-
 }
