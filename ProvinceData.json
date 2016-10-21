@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "regions" : [
+    {
+      "United States": {
+        "Alabama" : {
+          "residentNickname" : "Alabamian",
+          "largestCity" : "Birmingham",
+          "elevation" : 2405,
+          "year" : 1819,
+          "nickname" : "The Cotton State",
+          "population" : 4822000,
+          "area" : 52423,
+          "capital" : "Montgomery",
+          "abbreviation" : "AL"
+        },
+        "Alaska" : {
+          "residentNickname" : "Alaskan",
+          "largestCity" : "Anchorage",
+          "elevation" : 20320,
+          "year" : 1959,
+          "nickname" : "The Last Frontier",
+          "population" : 731000,
+          "area" : 656425,
+          "capital" : "Juneau",
+          "abbreviation" : "AK"
+        },
+        "Arizona" : {
+          "residentNickname" : "Arizonian",
+          "largestCity" : "Phoenix",
+          "elevation" : 12633,
+          "year" : 1912,
+          "nickname" : "The Grand Canyon State",
+          "population" : 6553000,
+          "area" : 114006,
+          "capital" : "Pheonix",
+          "abbreviation" : "AZ"
+        },
+        "Arkansas" : {
+          "residentNickname" : "Arkansan",
+          "largestCity" : "Little Rock",
+          "elevation" : 2753,
+          "year" : 1836,
+          "nickname" : "The Natural State",
+          "population" : 2949000,
+          "area" : 53182,
+          "capital" : "Little Rock",
+          "abbreviation" : "AR"
+        },
+        "California" : {
+          "residentNickname" : "Californian",
+          "largestCity" : "Los Angeles",
+          "elevation" : 14505,
+          "year" : 1850,
+          "nickname" : "The Golden State",
+          "population" : 38040000,
+          "area" : 163707,
+          "capital" : "Sacramento",
+          "abbreviation" : "CA"
+        },
+        "Colorado" : {
+          "residentNickname" : "Coloradan",
+          "largestCity" : "Denver",
+          "elevation" : 14440,
+          "year" : 1876,
+          "nickname" : "The Centennial State",
+          "population" : 5268000,
+          "area" : 104100,
+          "capital" : "Denver",
+          "abbreviation" : "CO"
+        },
+        "Connecticut" : {
+          "residentNickname" : "Connecticuter",
+          "largestCity" : "Bridgeport",
+          "elevation" : 2380,
+          "year" : 1788,
+          "nickname" : "The Constitution State",
+          "population" : 3605000,
+          "area" : 5544,
+          "capital" : "Hartford",
+          "abbreviation" : "CT"
+        },
+        "Delaware" : {
+          "residentNickname" : "Delawarean",
+          "largestCity" : "Wilmington",
+          "elevation" : 448,
+          "year" : 1787,
+          "nickname" : "The First State",
+          "population" : 926000,
+          "area" : 2489,
+          "capital" : "Dover",
+          "abbreviation" : "DE"
+        },
+        "Florida" : {
+          "residentNickname" : "Floridian",
+          "largestCity" : "Jacksonville",
+          "elevation" : 345,
+          "year" : 1845,
+          "nickname" : "The Sunshine State",
+          "population" : 19553000,
+          "area" : 65758,
+          "capital" : "Tallahassee",
+          "abbreviation" : "FL"
+        },
+        "Georgia" : {
+          "residentNickname" : "Georgian",
+          "largestCity" : "Atlanta",
+          "elevation" : 4784,
+          "year" : 1788,
+          "nickname" : "The Peach State",
+          "population" : 9992000,
+          "area" : 59441,
+          "capital" : "Atlanta",
+          "abbreviation" : "GA"
+        },
+        "Hawaii" : {
+          "residentNickname" : "Hawaiian",
+          "largestCity" : "Honolulu",
+          "elevation" : 13796,
+          "year" : 1959,
+          "nickname" : "The Aloha State",
+          "population" : 1360000,
+          "area" : 10931,
+          "capital" : "Honolulu",
+          "abbreviation" : "HI"
+        },
+        "Idaho" : {
+          "residentNickname" : "Idahoan",
+          "largestCity" : "Boise",
+          "elevation" : 12662,
+          "year" : 1890,
+          "nickname" : "The Gem State",
+          "population" : 1567000,
+          "area" : 83569,
+          "capital" : "Boise",
+          "abbreviation" : "ID"
+        },
+        "Illinois" : {
+          "residentNickname" : "Illinoisan",
+          "largestCity" : "Chicago",
+          "elevation" : 1235,
+          "year" : 1818,
+          "nickname" : "The Prairie State",
+          "population" : 12830000,
+          "area" : 57913,
+          "capital" : "Springfield",
+          "abbreviation" : "IL"
+        },
+        "Indiana" : {
+          "residentNickname" : "Indianian",
+          "largestCity" : "Indianapolis",
+          "elevation" : 1257,
+          "year" : 1816,
+          "nickname" : "The Hoosier State",
+          "population" : 6483000,
+          "area" : 36419,
+          "capital" : "Indianapolis",
+          "abbreviation" : "IN"
+        },
+        "Iowa" : {
+          "residentNickname" : "Iowan",
+          "largestCity" : "Des Moines",
+          "elevation" : 1670,
+          "year" : 1846,
+          "nickname" : "The Hawkeye State",
+          "population" : 3046000,
+          "area" : 56273,
+          "capital" : "Des Moines",
+          "abbreviation" : "IA"
+        },
+        "Kansas" : {
+          "residentNickname" : "Kansan",
+          "largestCity" : "Wichita",
+          "elevation" : 4039,
+          "year" : 1861,
+          "nickname" : "The Sunflower State",
+          "population" : 2853000,
+          "area" : 82278,
+          "capital" : "Topeka",
+          "abbreviation" : "KS"
+        },
+        "Kentucky" : {
+          "residentNickname" : "Kentuckian",
+          "largestCity" : "Louisville",
+          "elevation" : 4145,
+          "year" : 1792,
+          "nickname" : "The Bluegrass State",
+          "population" : 4339000,
+          "area" : 40407,
+          "capital" : "Frankfort",
+          "abbreviation" : "KY"
+        },
+        "Louisiana" : {
+          "residentNickname" : "Louisianan",
+          "largestCity" : "New Orleans",
+          "elevation" : 535,
+          "year" : 1812,
+          "nickname" : "The Pelican State",
+          "population" : 4533000,
+          "area" : 52378,
+          "capital" : "Baton Rouge",
+          "abbreviation" : "LA"
+        },
+        "Maine" : {
+          "residentNickname" : "Mainer",
+          "largestCity" : "Portland",
+          "elevation" : 5267,
+          "year" : 1820,
+          "nickname" : "The Pine Tree State",
+          "population" : 1329000,
+          "area" : 35379,
+          "capital" : "Augusta",
+          "abbreviation" : "ME"
+        },
+        "Maryland" : {
+          "residentNickname" : "Marylander",
+          "largestCity" : "Baltimore",
+          "elevation" : 3360,
+          "year" : 1788,
+          "nickname" : "The Old Line State",
+          "population" : 5929000,
+          "area" : 12406,
+          "capital" : "Annapolis",
+          "abbreviation" : "MD"
+        },
+        "Massachusetts" : {
+          "residentNickname" : "Massachusettsan",
+          "largestCity" : "Boston",
+          "elevation" : 3487,
+          "year" : 1788,
+          "nickname" : "The Bay State",
+          "population" : 6693000,
+          "area" : 10554,
+          "capital" : "Boston",
+          "abbreviation" : "MA"
+        },
+        "Michigan" : {
+          "residentNickname" : "Michigander",
+          "largestCity" : "Detroit",
+          "elevation" : 1979,
+          "year" : 1837,
+          "nickname" : "The Great Lakes State",
+          "population" : 9896000,
+          "area" : 96714,
+          "capital" : "Lansing",
+          "abbreviation" : "MI"
+        },
+        "Minnesota" : {
+          "residentNickname" : "Minnesotan",
+          "largestCity" : "Minneapolis",
+          "elevation" : 2301,
+          "year" : 1858,
+          "nickname" : "The North Star State",
+          "population" : 5420000,
+          "area" : 86935,
+          "capital" : "St. Paul",
+          "abbreviation" : "MN"
+        },
+        "Mississippi" : {
+          "residentNickname" : "Mississippian",
+          "largestCity" : "Jackson",
+          "elevation" : 806,
+          "year" : 1817,
+          "nickname" : "The Magnolia State",
+          "population" : 2992000,
+          "area" : 48431,
+          "capital" : "Jackson",
+          "abbreviation" : "MS"
+        },
+        "Missouri" : {
+          "residentNickname" : "Missourian",
+          "largestCity" : "Kansas City",
+          "elevation" : 1772,
+          "year" : 1821,
+          "nickname" : "The Show-Me State",
+          "population" : 6044000,
+          "area" : 69706,
+          "capital" : "Jefferson City",
+          "abbreviation" : "MO"
+        },
+        "Montana" : {
+          "residentNickname" : "Montanan",
+          "largestCity" : "Billings",
+          "elevation" : 12799,
+          "year" : 1889,
+          "nickname" : "The Treasure State",
+          "population" : 1015000,
+          "area" : 147039,
+          "capital" : "Helena",
+          "abbreviation" : "MT"
+        },
+        "Nebraska" : {
+          "residentNickname" : "Nebraskan",
+          "largestCity" : "Omaha",
+          "elevation" : 5424,
+          "year" : 1867,
+          "nickname" : "The Cornhusker State",
+          "population" : 1869000,
+          "area" : 77347,
+          "capital" : "Lincoln",
+          "abbreviation" : "NE"
+        },
+        "Nevada" : {
+          "residentNickname" : "Nevadan",
+          "largestCity" : "Las Vegas",
+          "elevation" : 13140,
+          "year" : 1864,
+          "nickname" : "The Silver State",
+          "population" : 2790000,
+          "area" : 110557,
+          "capital" : "Carson City",
+          "abbreviation" : "NV"
+        },
+        "New Hampshire" : {
+          "residentNickname" : "New Hampshirite",
+          "largestCity" : "Manchester",
+          "elevation" : 6288,
+          "year" : 1788,
+          "nickname" : "The Granite State",
+          "population" : 1323000,
+          "area" : 9349,
+          "capital" : "Concord",
+          "abbreviation" : "NH"
+        },
+        "New Jersey" : {
+          "residentNickname" : "New Jerseyan",
+          "largestCity" : "Newark",
+          "elevation" : 1803,
+          "year" : 1787,
+          "nickname" : "The Garden State",
+          "population" : 8899000,
+          "area" : 8722,
+          "capital" : "Trenton",
+          "abbreviation" : "NJ"
+        },
+        "New Mexico" : {
+          "residentNickname" : "New Mexican",
+          "largestCity" : "Albuquerque",
+          "elevation" : 13161,
+          "year" : 1912,
+          "nickname" : "The Land of Enchantment",
+          "population" : 2085000,
+          "area" : 121590,
+          "capital" : "Santa Fe",
+          "abbreviation" : "NM"
+        },
+        "New York" : {
+          "residentNickname" : "New Yorker",
+          "largestCity" : "New York",
+          "elevation" : 5344,
+          "year" : 1788,
+          "nickname" : "The Empire State",
+          "population" : 19651000,
+          "area" : 54544,
+          "capital" : "Albany",
+          "abbreviation" : "NY"
+        },
+        "North Carolina" : {
+          "residentNickname" : "North Carolinian",
+          "largestCity" : "Charlotte",
+          "elevation" : 6684,
+          "year" : 1789,
+          "nickname" : "The Old North State",
+          "population" : 9848000,
+          "area" : 53819,
+          "capital" : "Raleigh",
+          "abbreviation" : "NC"
+        },
+        "North Dakota" : {
+          "residentNickname" : "North Dakotan",
+          "largestCity" : "Fargo",
+          "elevation" : 3506,
+          "year" : 1889,
+          "nickname" : "The Peace Garden State",
+          "population" : 723000,
+          "area" : 70698,
+          "capital" : "Bismarck",
+          "abbreviation" : "ND"
+        },
+        "Ohio" : {
+          "residentNickname" : "Ohioan",
+          "largestCity" : "Columbus",
+          "elevation" : 1549,
+          "year" : 1803,
+          "nickname" : "The Buckeye State",
+          "population" : 11570000,
+          "area" : 44824,
+          "capital" : "Columbus",
+          "abbreviation" : "OH"
+        },
+        "Oklahoma" : {
+          "residentNickname" : "Oklahoman",
+          "largestCity" : "Oklahoma City",
+          "elevation" : 4973,
+          "year" : 1907,
+          "nickname" : "The Sooner State",
+          "population" : 3850000,
+          "area" : 69898,
+          "capital" : "Oklahoma City",
+          "abbreviation" : "OK"
+        },
+        "Oregon" : {
+          "residentNickname" : "Oregonian",
+          "largestCity" : "Portland",
+          "elevation" : 11239,
+          "year" : 1859,
+          "nickname" : "The Beaver State",
+          "population" : 3930000,
+          "area" : 98378,
+          "capital" : "Salem",
+          "abbreviation" : "OR"
+        },
+        "Pennsylvania" : {
+          "residentNickname" : "Pennsylvanian",
+          "largestCity" : "Philadelphia",
+          "elevation" : 3213,
+          "year" : 1787,
+          "nickname" : "The Keystone State",
+          "population" : 12774000,
+          "area" : 46054,
+          "capital" : "Harrisburg",
+          "abbreviation" : "PA"
+        },
+        "Rhode Island" : {
+          "residentNickname" : "Rhode Islander",
+          "largestCity" : "Providence",
+          "elevation" : 812,
+          "year" : 1790,
+          "nickname" : "The Ocean State",
+          "population" : 1051000,
+          "area" : 1544,
+          "capital" : "Providence",
+          "abbreviation" : "RI"
+        },
+        "South Carolina" : {
+          "residentNickname" : "South Carolinian",
+          "largestCity" : "Columbia",
+          "elevation" : 3560,
+          "year" : 1788,
+          "nickname" : "The Palmetto State",
+          "population" : 4775000,
+          "area" : 32020,
+          "capital" : "Columbia",
+          "abbreviation" : "SC"
+        },
+        "South Dakota" : {
+          "residentNickname" : "South Dakotan",
+          "largestCity" : "Sioux Falls",
+          "elevation" : 7242,
+          "year" : 1889,
+          "nickname" : "The Mount Rushmore State",
+          "population" : 844900,
+          "area" : 77114,
+          "capital" : "Pierre",
+          "abbreviation" : "SD"
+        },
+        "Tennessee" : {
+          "residentNickname" : "Tennessean",
+          "largestCity" : "Memphis",
+          "elevation" : 6643,
+          "year" : 1796,
+          "nickname" : "The Volunteer State",
+          "population" : 6496000,
+          "area" : 42144,
+          "capital" : "Nashville",
+          "abbreviation" : "TN"
+        },
+        "Texas" : {
+          "residentNickname" : "Texan",
+          "largestCity" : "Houston",
+          "elevation" : 8749,
+          "year" : 1845,
+          "nickname" : "The Lone Star State",
+          "population" : 26448000,
+          "area" : 268596,
+          "capital" : "Austin",
+          "abbreviation" : "TX"
+        },
+        "Utah" : {
+          "residentNickname" : "Utahn",
+          "largestCity" : "Salt Lake City",
+          "elevation" : 13528,
+          "year" : 1896,
+          "nickname" : "The Beehive State",
+          "population" : 2901000,
+          "area" : 84897,
+          "capital" : "Salt Lake City",
+          "abbreviation" : "UT"
+        },
+        "Vermont" : {
+          "residentNickname" : "Vermonter",
+          "largestCity" : "Burlington",
+          "elevation" : 4393,
+          "year" : 1791,
+          "nickname" : "The Green Mountain State",
+          "population" : 626000,
+          "area" : 9616,
+          "capital" : "Montpeller",
+          "abbreviation" : "VT"
+        },
+        "Virginia" : {
+          "residentNickname" : "Virginian",
+          "largestCity" : "Virginia Beach",
+          "elevation" : 5729,
+          "year" : 1788,
+          "nickname" : "The Old Dominion",
+          "population" : 8260000,
+          "area" : 42775,
+          "capital" : "Richmond",
+          "abbreviation" : "VA"
+        },
+        "Washington" : {
+          "residentNickname" : "Washingtonian",
+          "largestCity" : "Seattle",
+          "elevation" : 14410,
+          "year" : 1889,
+          "nickname" : "The Evergreen State",
+          "population" : 6971000,
+          "area" : 71298,
+          "capital" : "Olympia",
+          "abbreviation" : "WA"
+        },
+        "West Virginia" : {
+          "residentNickname" : "West Virginian",
+          "largestCity" : "Charleston",
+          "elevation" : 4861,
+          "year" : 1863,
+          "nickname" : "The Mountain State",
+          "population" : 1854000,
+          "area" : 24230,
+          "capital" : "Charleston",
+          "abbreviation" : "WV"
+        },
+        "Wisconsin" : {
+          "residentNickname" : "Wisconsinite",
+          "largestCity" : "Milwaukee",
+          "elevation" : 1951,
+          "year" : 1848,
+          "nickname" : "The Badger State",
+          "population" : 5742000,
+          "area" : 65496,
+          "capital" : "Madison",
+          "abbreviation" : "WI"
+        },
+        "Wyoming" : {
+          "residentNickname" : "Wyomingite",
+          "largestCity" : "Cheyenne",
+          "elevation" : 13804,
+          "year" : 1890,
+          "nickname" : "The Equality State",
+          "population" : 583000,
+          "area" : 97813,
+          "capital" : "Cheyenne",
+          "abbreviation" : "WY"
+        }
+      },
+      "Canada" : {
+        "Province" : {
+          "residentNickname" : "Wyomingite",
+          "largestCity" : "Cheyenne",
+          "elevation" : 13804,
+          "year" : 1890,
+          "nickname" : "The Equality State",
+          "population" : 583000,
+          "area" : 97813,
+          "capital" : "Cheyenne",
+          "abbreviation" : "WY"
+        }
+      }
+    }
+  ]
+}

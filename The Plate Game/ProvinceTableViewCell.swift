@@ -1,5 +1,5 @@
 //
-//  StateTableViewCell.swift
+//  ProvinceTableViewCell.swift
 //  The Plate Game
 //
 //  Created by Connor Krupp on 10/6/16.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class StateTableViewCell: UITableViewCell {
-    static let identifier = "StateCell"
+class ProvinceTableViewCell: UITableViewCell {
+    static let identifier = "ProvinceCell"
     
-    var stateNameLabel = UILabel()
-    var stateNicknameLabel = UILabel()
+    var provinceNameLabel = UILabel()
+    var provinceNicknameLabel = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let stackView = UIStackView(arrangedSubviews: [stateNameLabel, stateNicknameLabel])
+        let stackView = UIStackView(arrangedSubviews: [provinceNameLabel, provinceNicknameLabel])
         
         stackView.axis = .vertical
         stackView.distribution = .fill
@@ -25,13 +25,13 @@ class StateTableViewCell: UITableViewCell {
         stackView.spacing = 4
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stateNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        stateNicknameLabel.translatesAutoresizingMaskIntoConstraints = false
+        provinceNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        provinceNicknameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        stateNicknameLabel.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .vertical)
-        stateNicknameLabel.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
+        provinceNicknameLabel.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .vertical)
+        provinceNicknameLabel.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
         
-        stateNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        provinceNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         
         self.addSubview(stackView)
         
@@ -42,22 +42,22 @@ class StateTableViewCell: UITableViewCell {
             stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: margins.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
-            ])
+        ])
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var stateName: String? {
+    var provinceName: String? {
         didSet {
-            stateNameLabel.text = stateName
+            provinceNameLabel.text = provinceName
         }
     }
     
-    var stateNickname: String? {
+    var provinceNickname: String? {
         didSet {
-            stateNicknameLabel.text = stateNickname
+            provinceNicknameLabel.text = provinceNickname
         }
     }
     

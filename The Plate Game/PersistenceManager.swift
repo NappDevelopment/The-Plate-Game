@@ -10,14 +10,14 @@ import Foundation
 import CoreData
 
 final class PersistenceManager {
-    private let stateDataFile = (name: "StateData", type: "json")
+    private let provinceDataFile = (name: "ProvinceData", type: "json")
     private let context: NSManagedObjectContext
     
     init(withContext context: NSManagedObjectContext) {
         self.context = context
         
-        guard let path = Bundle.main.path(forResource: stateDataFile.name, ofType: stateDataFile.type) else {
-            fatalError("Invalid Filename or Path: \(stateDataFile)")
+        guard let path = Bundle.main.path(forResource: provinceDataFile.name, ofType: provinceDataFile.type) else {
+            fatalError("Invalid Filename or Path: \(provinceDataFile)")
         }
         
         if let json = getJSON(fromPath: path), let jsonVersion = getJSONVersion(json: json) {
@@ -40,17 +40,21 @@ final class PersistenceManager {
         }
     }
     
-    func getStates() -> [State] {
-        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
+    func getRegions() -> [[Province]] {
+        let fetchRequest: NSFetchRequest<Province> = Province.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 
         fetchRequest.returnsObjectsAsFaults = false
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
-            let states = try context.fetch(fetchRequest)
+            let provinces = try context.fetch(fetchRequest)
+            let regions = [
+                provinces.filter({$0.region == region.us.rawValue}),
+                provinces.filter({$0.region == region.canada.rawValue})
+            ]
             
-            return states
+            return regions
         } catch {
             fatalError("Error executive fetch request")
         }
@@ -61,23 +65,26 @@ final class PersistenceManager {
     }
     
     func importJSONData(context: NSManagedObjectContext, fromJSON json: JSON) {
-        for (_, value) in json["states"] {
-            if let stateName = value.first?.0, let stateData = value.first?.1 {
-                let newState = State(context: context)
-                
-                newState.name = stateName
-                newState.capital = stateData["capital"].string!
-                newState.abbreviation = stateData["abbreviation"].string!
-                newState.largestCity = stateData["largestCity"].string!
-                newState.residentNickname = stateData["residentNickname"].string!
-                newState.nickname = stateData["nickname"].string!
-                
-                newState.year = (stateData["year"].int16)!
-                newState.area = (stateData["area"].int32)!
-                newState.elevation = (stateData["elevation"].int32)!
-                newState.population = (stateData["population"].int64)!
-                
-                newState.isFound = false
+        for (_, regions) in json["regions"] {
+            for (region, provinceData) in regions {
+                for (province, provinceData) in provinceData {
+                    let newProvince = Province(context: context)
+                    
+                    newProvince.region = region
+                    newProvince.name = province
+                    newProvince.capital = provinceData["capital"].string!
+                    newProvince.abbreviation = provinceData["abbreviation"].string!
+                    newProvince.largestCity = provinceData["largestCity"].string!
+                    newProvince.residentNickname = provinceData["residentNickname"].string!
+                    newProvince.nickname = provinceData["nickname"].string!
+                    
+                    newProvince.year = (provinceData["year"].int16)!
+                    newProvince.area = (provinceData["area"].int32)!
+                    newProvince.elevation = (provinceData["elevation"].int32)!
+                    newProvince.population = (provinceData["population"].int64)!
+                    
+                    newProvince.isFound = false
+                }
             }
         }
         

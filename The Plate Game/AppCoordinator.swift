@@ -8,13 +8,13 @@
 
 import UIKit
 
-class AppCoordinator: UISplitViewControllerDelegate, StateListTableViewControllerDelegate {
+class AppCoordinator: UISplitViewControllerDelegate, ProvinceListTableViewControllerDelegate {
     
     // MARK: - View Controller References
     
     private let splitViewController: UISplitViewController
-     let stateListNavigationController: UINavigationController
-     let stateDetailNavigationController: UINavigationController
+    private let provinceListNavigationController: UINavigationController
+    private let provinceDetailNavigationController: UINavigationController
     
     /// Abstract out the root view controller
     var rootViewController: UIViewController {
@@ -23,22 +23,22 @@ class AppCoordinator: UISplitViewControllerDelegate, StateListTableViewControlle
     
     // MARK: - Initializer
     
-    init(with stateManager: StateManager) {
+    init(with regionManager: RegionManager) {
         /// Initialize the main view controllers for the split view
-        let stateListTableViewController = StateListTableViewController(stateManager: stateManager)
-        let stateDetailViewController = StateDetailViewController(state: stateManager.states[0])
+        let provinceListTableViewController = ProvinceListTableViewController(regionManager: regionManager)
+        let provinceDetailViewController = ProvinceDetailViewController(province: provinceListTableViewController.selectedProvince)
         
         /// Initialize the container view controllers
         splitViewController = UISplitViewController()
-        stateListNavigationController = UINavigationController(rootViewController: stateListTableViewController)
-        stateDetailNavigationController = UINavigationController(rootViewController: stateDetailViewController)
+        provinceListNavigationController = UINavigationController(rootViewController: provinceListTableViewController)
+        provinceDetailNavigationController = UINavigationController(rootViewController: provinceDetailViewController)
         
         /// Setup the split view controller
-        splitViewController.viewControllers = [stateListNavigationController, stateDetailNavigationController]
+        splitViewController.viewControllers = [provinceListNavigationController, provinceDetailNavigationController]
         splitViewController.delegate = self
         
-        stateListTableViewController.delegate = self
-        stateDetailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        provinceListTableViewController.delegate = self
+        provinceDetailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
     }
     
     // MARK: - Split view
@@ -48,35 +48,26 @@ class AppCoordinator: UISplitViewControllerDelegate, StateListTableViewControlle
     }
     
     func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController? {
-        return stateListNavigationController
+        return provinceListNavigationController
     }
     
     func primaryViewController(forCollapsing splitViewController: UISplitViewController) -> UIViewController? {
-        return stateListNavigationController
+        return provinceListNavigationController
     }
     
     // MARK: - Coordinator Methods
     
-    func didSelect(state: State) {
-        let stateDetailViewController = stateDetailNavigationController.topViewController as? StateDetailViewController ?? StateDetailViewController(state: state)
+    func didSelect(province: Province) {
+        let provinceDetailViewController = provinceDetailNavigationController.topViewController as? ProvinceDetailViewController ?? ProvinceDetailViewController(province: province)
         
-        stateDetailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem
-        stateDetailViewController.navigationItem.leftItemsSupplementBackButton = true
+        provinceDetailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem
+        provinceDetailViewController.navigationItem.leftItemsSupplementBackButton = true
         
-        if stateDetailViewController.state != state {
-            stateDetailViewController.state = state
+        if provinceDetailViewController.province != province {
+            provinceDetailViewController.province = province
         }
         
         
-        stateListNavigationController.pushViewController(stateDetailViewController, animated: true)
-        //let top = stateListNavigationController.topViewController as? StateListTableViewController
-        //top?.showDetailViewController(stateDetailNavigationController, sender: nil)
-        //stateListNavigationController.pushViewController(stateDetailNavigationController, animated: true)
-        //splitViewController.showDetailViewController(stateDetailViewController, sender: nil)
-        //stateListNavigationController.pushViewController(stateDetailViewController, animated: true)
-        //stateDetailNavigationController.show(stateDetailViewController, sender: nil)
-//        stateListNavigationController.show(stateDetailViewController, sender: nil)
-        //stateListNavigationController.showDetailViewController(stateDetailViewController, sender: nil)
-        //stateListNavigationController.showDetailViewController(stateDetailNavigationController, sender: nil)
+        provinceListNavigationController.pushViewController(provinceDetailViewController, animated: true)
     }
 }
