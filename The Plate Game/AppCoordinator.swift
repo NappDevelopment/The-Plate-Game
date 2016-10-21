@@ -59,14 +59,15 @@ class AppCoordinator: UISplitViewControllerDelegate, ProvinceListTableViewContro
     
     func didSelect(province: Province) {
         let provinceDetailViewController = provinceDetailNavigationController.topViewController as? ProvinceDetailViewController ?? ProvinceDetailViewController(province: province)
+        let provinceListTableViewController = provinceListNavigationController.topViewController as? ProvinceListTableViewController
         
+        provinceListTableViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         provinceDetailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem
         provinceDetailViewController.navigationItem.leftItemsSupplementBackButton = true
         
         if provinceDetailViewController.province != province {
             provinceDetailViewController.province = province
         }
-        
         
         provinceListNavigationController.pushViewController(provinceDetailViewController, animated: true)
     }
