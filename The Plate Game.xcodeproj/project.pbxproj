@@ -88,14 +88,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		70C4A4861DA757D20037FF8C /* StateList */ = {
+		70B107381DB9C44E00841111 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70C4A4801DA701F80037FF8C /* RegionManager.swift */,
+				70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		70B107391DB9C46700841111 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				706FBAA61DB446E300B7F984 /* AppCoordinator.swift */,
+			);
+			name = Coordinators;
+			sourceTree = "<group>";
+		};
+		70B1073A1DB9C48200841111 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				70D6B2EF1DA4430600694B14 /* SwiftyJSON.swift */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		70C4A4861DA757D20037FF8C /* ProvinceList */ = {
 			isa = PBXGroup;
 			children = (
 				70D6B2BD1DA43BCD00694B14 /* ProvinceListTableViewController.swift */,
 				70C4A4841DA753100037FF8C /* ProvinceTableViewCell.swift */,
 				70D6B2BF1DA43BCD00694B14 /* ProvinceDetailViewController.swift */,
 			);
-			name = StateList;
+			name = ProvinceList;
 			sourceTree = "<group>";
 		};
 		70D6B2AC1DA43BCD00694B14 = {
@@ -122,11 +147,10 @@
 			isa = PBXGroup;
 			children = (
 				70D6B2B81DA43BCD00694B14 /* AppDelegate.swift */,
-				706FBAA61DB446E300B7F984 /* AppCoordinator.swift */,
-				70C4A4861DA757D20037FF8C /* StateList */,
-				70D6B2EF1DA4430600694B14 /* SwiftyJSON.swift */,
-				70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */,
-				70C4A4801DA701F80037FF8C /* RegionManager.swift */,
+				70B107391DB9C46700841111 /* Coordinators */,
+				70C4A4861DA757D20037FF8C /* ProvinceList */,
+				70B107381DB9C44E00841111 /* Model */,
+				70B1073A1DB9C48200841111 /* Libraries */,
 				70D6B2C41DA43BCD00694B14 /* Assets.xcassets */,
 				70D6B2C61DA43BCD00694B14 /* LaunchScreen.storyboard */,
 				70D6B2C91DA43BCD00694B14 /* Info.plist */,
