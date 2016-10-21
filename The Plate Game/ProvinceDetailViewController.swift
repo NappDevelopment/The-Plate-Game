@@ -1,5 +1,5 @@
 //
-//  StateDetailViewController.swift
+//  ProvinceDetailViewController.swift
 //  The Plate Game
 //
 //  Created by Connor Krupp on 10/4/16.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class StateDetailViewController: UIViewController {
+class ProvinceDetailViewController: UIViewController {
 
     var detailDescriptionLabel = UILabel()
 
     func configureView() {
         // Update the user interface for the detail item.
-        self.navigationItem.title = state.name
-        detailDescriptionLabel.text = "Is Found: \(state.isFound)"
+        self.navigationItem.title = province.name
+        detailDescriptionLabel.text = "Is Found: \(province.isFound)"
     }
     
-    init(state: State) {
-        self.state = state
+    init(province: Province) {
+        self.province = province
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -54,7 +54,7 @@ class StateDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var state: State {
+    var province: Province {
         didSet {
             // Update the view.
             self.configureView()

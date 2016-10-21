@@ -15,14 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
     var persistenceManager: PersistenceManager?
-    var stateManager: StateManager?
+    var regionManager: RegionManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
         self.persistenceManager = PersistenceManager(withContext: self.persistentContainer.viewContext)
-        self.stateManager = StateManager(persistenceManager: persistenceManager!)
-        self.appCoordinator = AppCoordinator(with: stateManager!)
+        self.regionManager = RegionManager(persistenceManager: persistenceManager!)
+        self.appCoordinator = AppCoordinator(with: regionManager!)
 
         self.window?.rootViewController = appCoordinator?.rootViewController
         self.window?.makeKeyAndVisible()

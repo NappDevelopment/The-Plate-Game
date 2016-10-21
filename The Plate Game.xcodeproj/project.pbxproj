@@ -9,18 +9,17 @@
 /* Begin PBXBuildFile section */
 		706FBAA71DB446E300B7F984 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706FBAA61DB446E300B7F984 /* AppCoordinator.swift */; };
 		70C4A47F1DA6FC160037FF8C /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */; };
-		70C4A4811DA701F80037FF8C /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4801DA701F80037FF8C /* StateManager.swift */; };
-		70C4A4831DA7523C0037FF8C /* StateListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4821DA7523C0037FF8C /* StateListTableViewDataSource.swift */; };
-		70C4A4851DA753100037FF8C /* StateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4841DA753100037FF8C /* StateTableViewCell.swift */; };
+		70C4A4811DA701F80037FF8C /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4801DA701F80037FF8C /* RegionManager.swift */; };
+		70C4A4851DA753100037FF8C /* ProvinceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4841DA753100037FF8C /* ProvinceTableViewCell.swift */; };
 		70D6B2B91DA43BCD00694B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2B81DA43BCD00694B14 /* AppDelegate.swift */; };
 		70D6B2BC1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BA1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld */; };
-		70D6B2BE1DA43BCD00694B14 /* StateListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BD1DA43BCD00694B14 /* StateListTableViewController.swift */; };
-		70D6B2C01DA43BCD00694B14 /* StateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BF1DA43BCD00694B14 /* StateDetailViewController.swift */; };
+		70D6B2BE1DA43BCD00694B14 /* ProvinceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BD1DA43BCD00694B14 /* ProvinceListTableViewController.swift */; };
+		70D6B2C01DA43BCD00694B14 /* ProvinceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2BF1DA43BCD00694B14 /* ProvinceDetailViewController.swift */; };
 		70D6B2C51DA43BCD00694B14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70D6B2C41DA43BCD00694B14 /* Assets.xcassets */; };
 		70D6B2C81DA43BCD00694B14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D6B2C61DA43BCD00694B14 /* LaunchScreen.storyboard */; };
 		70D6B2D31DA43BCD00694B14 /* The_Plate_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2D21DA43BCD00694B14 /* The_Plate_GameTests.swift */; };
 		70D6B2DE1DA43BCD00694B14 /* The_Plate_GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2DD1DA43BCD00694B14 /* The_Plate_GameUITests.swift */; };
-		70D6B2EE1DA4408500694B14 /* StateData.json in Resources */ = {isa = PBXBuildFile; fileRef = 70D6B2ED1DA4408500694B14 /* StateData.json */; };
+		70D6B2EE1DA4408500694B14 /* ProvinceData.json in Resources */ = {isa = PBXBuildFile; fileRef = 70D6B2ED1DA4408500694B14 /* ProvinceData.json */; };
 		70D6B2F01DA4430600694B14 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6B2EF1DA4430600694B14 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,14 +43,13 @@
 /* Begin PBXFileReference section */
 		706FBAA61DB446E300B7F984 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		70C4A4801DA701F80037FF8C /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
-		70C4A4821DA7523C0037FF8C /* StateListTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateListTableViewDataSource.swift; sourceTree = "<group>"; };
-		70C4A4841DA753100037FF8C /* StateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateTableViewCell.swift; sourceTree = "<group>"; };
+		70C4A4801DA701F80037FF8C /* RegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
+		70C4A4841DA753100037FF8C /* ProvinceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceTableViewCell.swift; sourceTree = "<group>"; };
 		70D6B2B51DA43BCD00694B14 /* The Plate Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Plate Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D6B2B81DA43BCD00694B14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70D6B2BB1DA43BCD00694B14 /* The_Plate_Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Plate_Game.xcdatamodel; sourceTree = "<group>"; };
-		70D6B2BD1DA43BCD00694B14 /* StateListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateListTableViewController.swift; sourceTree = "<group>"; };
-		70D6B2BF1DA43BCD00694B14 /* StateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDetailViewController.swift; sourceTree = "<group>"; };
+		70D6B2BD1DA43BCD00694B14 /* ProvinceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceListTableViewController.swift; sourceTree = "<group>"; };
+		70D6B2BF1DA43BCD00694B14 /* ProvinceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceDetailViewController.swift; sourceTree = "<group>"; };
 		70D6B2C41DA43BCD00694B14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70D6B2C71DA43BCD00694B14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70D6B2C91DA43BCD00694B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,7 +59,7 @@
 		70D6B2D91DA43BCD00694B14 /* The Plate GameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Plate GameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D6B2DD1DA43BCD00694B14 /* The_Plate_GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Plate_GameUITests.swift; sourceTree = "<group>"; };
 		70D6B2DF1DA43BCD00694B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70D6B2ED1DA4408500694B14 /* StateData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = StateData.json; path = ../StateData.json; sourceTree = "<group>"; };
+		70D6B2ED1DA4408500694B14 /* ProvinceData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ProvinceData.json; path = ../ProvinceData.json; sourceTree = "<group>"; };
 		70D6B2EF1DA4430600694B14 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,10 +91,9 @@
 		70C4A4861DA757D20037FF8C /* StateList */ = {
 			isa = PBXGroup;
 			children = (
-				70D6B2BD1DA43BCD00694B14 /* StateListTableViewController.swift */,
-				70C4A4821DA7523C0037FF8C /* StateListTableViewDataSource.swift */,
-				70C4A4841DA753100037FF8C /* StateTableViewCell.swift */,
-				70D6B2BF1DA43BCD00694B14 /* StateDetailViewController.swift */,
+				70D6B2BD1DA43BCD00694B14 /* ProvinceListTableViewController.swift */,
+				70C4A4841DA753100037FF8C /* ProvinceTableViewCell.swift */,
+				70D6B2BF1DA43BCD00694B14 /* ProvinceDetailViewController.swift */,
 			);
 			name = StateList;
 			sourceTree = "<group>";
@@ -129,11 +126,11 @@
 				70C4A4861DA757D20037FF8C /* StateList */,
 				70D6B2EF1DA4430600694B14 /* SwiftyJSON.swift */,
 				70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */,
-				70C4A4801DA701F80037FF8C /* StateManager.swift */,
+				70C4A4801DA701F80037FF8C /* RegionManager.swift */,
 				70D6B2C41DA43BCD00694B14 /* Assets.xcassets */,
 				70D6B2C61DA43BCD00694B14 /* LaunchScreen.storyboard */,
 				70D6B2C91DA43BCD00694B14 /* Info.plist */,
-				70D6B2ED1DA4408500694B14 /* StateData.json */,
+				70D6B2ED1DA4408500694B14 /* ProvinceData.json */,
 				70D6B2BA1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld */,
 			);
 			path = "The Plate Game";
@@ -268,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70D6B2C81DA43BCD00694B14 /* LaunchScreen.storyboard in Resources */,
-				70D6B2EE1DA4408500694B14 /* StateData.json in Resources */,
+				70D6B2EE1DA4408500694B14 /* ProvinceData.json in Resources */,
 				70D6B2C51DA43BCD00694B14 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,15 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				706FBAA71DB446E300B7F984 /* AppCoordinator.swift in Sources */,
-				70C4A4811DA701F80037FF8C /* StateManager.swift in Sources */,
+				70C4A4811DA701F80037FF8C /* RegionManager.swift in Sources */,
 				70C4A47F1DA6FC160037FF8C /* PersistenceManager.swift in Sources */,
 				70D6B2BC1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld in Sources */,
 				70D6B2B91DA43BCD00694B14 /* AppDelegate.swift in Sources */,
-				70C4A4831DA7523C0037FF8C /* StateListTableViewDataSource.swift in Sources */,
-				70D6B2BE1DA43BCD00694B14 /* StateListTableViewController.swift in Sources */,
-				70C4A4851DA753100037FF8C /* StateTableViewCell.swift in Sources */,
+				70D6B2BE1DA43BCD00694B14 /* ProvinceListTableViewController.swift in Sources */,
+				70C4A4851DA753100037FF8C /* ProvinceTableViewCell.swift in Sources */,
 				70D6B2F01DA4430600694B14 /* SwiftyJSON.swift in Sources */,
-				70D6B2C01DA43BCD00694B14 /* StateDetailViewController.swift in Sources */,
+				70D6B2C01DA43BCD00694B14 /* ProvinceDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

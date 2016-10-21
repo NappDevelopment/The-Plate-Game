@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A320" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="State" representedClassName="State" codeGenerationType="class">
+    <entity name="Province" representedClassName="Province" codeGenerationType="class">
         <attribute name="abbreviation" attributeType="String" syncable="YES"/>
         <attribute name="area" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="capital" attributeType="String" syncable="YES"/>
@@ -12,11 +12,12 @@
         </attribute>
         <attribute name="nickname" attributeType="String" syncable="YES"/>
         <attribute name="population" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="residentNickname" attributeType="String" syncable="YES"/>
         <attribute name="year" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <userInfo/>
     </entity>
     <elements>
-        <element name="State" positionX="261" positionY="189" width="128" height="210"/>
+        <element name="Province" positionX="261" positionY="189" width="128" height="225"/>
     </elements>
 </model>
