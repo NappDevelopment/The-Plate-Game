@@ -16,8 +16,10 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
     
     private let regionManager: RegionManager
     
-    var selectedProvince: Province {
-        return regionManager.regions[tableView.indexPathForSelectedRow?.section ?? 0][tableView.indexPathForSelectedRow?.row ?? 0]
+    var selectedProvince: Province? {
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return nil }
+        
+        return regionManager.province(at: selectedIndexPath)
     }
 
     var delegate: ProvinceListTableViewControllerDelegate?
@@ -57,12 +59,14 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
         }
     }
     
-    func regionManager(_ regionManager: RegionManager, didUpdateFoundProvinceCount count: Int) {
-        updateNavigationItemTitle()
-    }
-    
     func updateNavigationItemTitle() {
         self.navigationItem.title = "\(regionManager.provincesRemaining) States Remaining"
+    }
+    
+    // MARK: - Region Manager Delegate
+    
+    func regionManager(_ regionManager: RegionManager, didUpdateFoundProvinceCount count: Int) {
+        updateNavigationItemTitle()
     }
     
     // MARK: - Table View DataSource
@@ -76,12 +80,12 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return regionManager.regions[section].count
+        return regionManager.provinces(forRegion: region.forSection(section)).count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProvinceTableViewCell.identifier, for: indexPath) as! ProvinceTableViewCell
-        let province = regionManager.regions[indexPath.section][indexPath.row]
+        let province = regionManager.province(at: indexPath)
         
         configureCell(cell, withProvince: province)
         
@@ -98,7 +102,7 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let province = regionManager.regions[indexPath.section][indexPath.row]
+        let province = regionManager.province(at: indexPath)
         
         delegate?.didSelect(province: province)
     }
@@ -115,9 +119,9 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
     }
     
     func markProvince(at indexPath: IndexPath) {
-        let province = regionManager.regions[indexPath.section][indexPath.row]
+        let province = regionManager.province(at: indexPath)
         
-        regionManager.markProvince(at: indexPath, asFound: !province.isFound)
+        regionManager.mark(province: province, asFound: !province.isFound)
     }
 }
 
