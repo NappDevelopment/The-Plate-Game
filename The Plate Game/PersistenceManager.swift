@@ -40,7 +40,7 @@ final class PersistenceManager {
         }
     }
     
-    func getRegions() -> [[Province]] {
+    func getRegions() -> [region:[Province]] {
         let fetchRequest: NSFetchRequest<Province> = Province.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 
@@ -50,13 +50,13 @@ final class PersistenceManager {
         do {
             let provinces = try context.fetch(fetchRequest)
             let regions = [
-                provinces.filter({$0.region == region.us.rawValue}),
-                provinces.filter({$0.region == region.canada.rawValue})
+                region.us: provinces.filter({$0.region == region.us.rawValue}),
+                region.canada: provinces.filter({$0.region == region.canada.rawValue})
             ]
             
             return regions
         } catch {
-            fatalError("Error executive fetch request")
+            fatalError("Error executing fetch request")
         }
     }
     

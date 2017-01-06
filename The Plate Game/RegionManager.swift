@@ -31,12 +31,12 @@ enum region: String {
 final class RegionManager {
 
     private var persistenceManager: PersistenceManager
-    private(set) var regions: [[Province]]
+    private(set) var regions: [region:[Province]]
     
     var provincesRemaining: Int {
         var count = 0
-        for region in regions {
-            count += region.filter({!$0.isFound}).count
+        for (_, provinces) in regions {
+            count += provinces.filter({!$0.isFound}).count
         }
         return count
     }
@@ -48,11 +48,22 @@ final class RegionManager {
         self.regions = persistenceManager.getRegions()
     }
     
-    func markProvince(at indexPath: IndexPath, asFound isFound: Bool) {
-        regions[indexPath.section][indexPath.row].isFound = isFound
+    func mark(province: Province, asFound isFound: Bool) {
+        province.isFound = isFound
         persistenceManager.save()
         
         delegate?.regionManager(self, didUpdateFoundProvinceCount: provincesRemaining)
     }
     
+    func provinces(forRegion region: region) -> [Province] {
+        return regions[region] ?? []
+    }
+    
+    func province(at indexPath: IndexPath) -> Province {
+        guard let province = regions[region.forSection(indexPath.section)]?[indexPath.row] else {
+            fatalError("Invalid IndexPath")
+        }
+        
+        return province
+    }
 }

@@ -13,12 +13,17 @@ class ProvinceDetailViewController: UIViewController {
     var detailDescriptionLabel = UILabel()
 
     func configureView() {
-        // Update the user interface for the detail item.
-        self.navigationItem.title = province.name
-        detailDescriptionLabel.text = "Is Found: \(province.isFound)"
+        if let province = self.province {
+            // Update the user interface for the detail item.
+            self.navigationItem.title = province.name
+            detailDescriptionLabel.text = "Is Found: \(province.isFound)"
+        } else {
+            self.navigationItem.title = "No state selected"
+            detailDescriptionLabel.text = "No State"
+        }
     }
     
-    init(province: Province) {
+    init(province: Province?) {
         self.province = province
         
         super.init(nibName: nil, bundle: nil)
@@ -54,7 +59,7 @@ class ProvinceDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var province: Province {
+    var province: Province? {
         didSet {
             // Update the view.
             self.configureView()
