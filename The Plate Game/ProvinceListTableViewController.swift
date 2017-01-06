@@ -12,7 +12,7 @@ protocol ProvinceListTableViewControllerDelegate {
     func didSelect(province: Province)
 }
 
-class ProvinceListTableViewController: UITableViewController, RegionManagerDelegate {
+class ProvinceListTableViewController: UITableViewController, RegionManagerDelegate, UISearchBarDelegate {
     
     private let regionManager: RegionManager
     
@@ -32,6 +32,16 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
+        searchBar.delegate = self
+        searchBar.showsCancelButton = false
+        
+        tableView.tableHeaderView = searchBar
     }
     
     override func viewDidLoad() {
@@ -76,7 +86,7 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return regionManager.regions.count
+        return regionManager.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,6 +132,40 @@ class ProvinceListTableViewController: UITableViewController, RegionManagerDeleg
         let province = regionManager.province(at: indexPath)
         
         regionManager.mark(province: province, asFound: !province.isFound)
+    }
+    
+    // MARK: - Search Bar Delegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        regionManager.searchQuery = searchText.isEmpty ? nil : searchText
+        
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        finishSearch(searchBar)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let _ = regionManager.searchQuery {
+            regionManager.searchQuery = nil
+            tableView.reloadData()
+        }
+
+        finishSearch(searchBar)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        finishSearch(searchBar)
+    }
+    
+    func finishSearch(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
 }
 

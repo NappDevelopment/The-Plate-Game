@@ -12,40 +12,36 @@ protocol RegionManagerDelegate {
     func regionManager(_ regionManager: RegionManager, didUpdateFoundProvinceCount count: Int)
 }
 
-enum region: String {
-    case us = "United States"
-    case canada = "Canada"
-    
-    static func forSection(_ index: Int) -> region {
-        switch index {
-        case 0:
-            return .us
-        case 1:
-            return .canada
-        default:
-            fatalError("Invalid index for region")
-        }
-    }
-}
-
 final class RegionManager {
 
     private var persistenceManager: PersistenceManager
-    private(set) var regions: [region:[Province]]
+    private(set) var unfilteredRegions: [region:[Province]]
+    private(set) var filteredRegions: [region:[Province]]
+    
+    var searchQuery: String? {
+        didSet {
+            if let query = searchQuery {
+                filteredRegions = filter(regions: unfilteredRegions, query: query)
+            } else {
+                filteredRegions = unfilteredRegions
+            }
+        }
+    }
     
     var provincesRemaining: Int {
-        var count = 0
-        for (_, provinces) in regions {
-            count += provinces.filter({!$0.isFound}).count
+        return unfilteredRegions.reduce(0) { sum, tuple in
+            sum + tuple.value.reduce(0) { sum, province in
+                province.isFound ? sum : sum + 1
+            }
         }
-        return count
     }
     
     var delegate: RegionManagerDelegate?
     
     init(persistenceManager: PersistenceManager) {
         self.persistenceManager = persistenceManager
-        self.regions = persistenceManager.getRegions()
+        self.unfilteredRegions = persistenceManager.getRegions()
+        self.filteredRegions = unfilteredRegions
     }
     
     func mark(province: Province, asFound isFound: Bool) {
@@ -55,15 +51,36 @@ final class RegionManager {
         delegate?.regionManager(self, didUpdateFoundProvinceCount: provincesRemaining)
     }
     
+    var count: Int {
+        return filteredRegions.count
+    }
+    
     func provinces(forRegion region: region) -> [Province] {
-        return regions[region] ?? []
+        return filteredRegions[region] ?? []
     }
     
     func province(at indexPath: IndexPath) -> Province {
-        guard let province = regions[region.forSection(indexPath.section)]?[indexPath.row] else {
+        guard let province = filteredRegions[region.forSection(indexPath.section)]?[indexPath.row] else {
             fatalError("Invalid IndexPath")
         }
         
         return province
+    }
+    
+    private func filter(regions: [region:[Province]], query: String) -> [region:[Province]] {
+        
+        var filteredRegions = [region:[Province]]()
+        
+        for (region, provinces) in regions {
+            let filteredProvinces = provinces.filter({ province in
+                return province.name?.lowercased().contains(query.lowercased()) ?? false
+            })
+            
+            if filteredProvinces.count > 0 {
+                filteredRegions[region] = filteredProvinces
+            }
+        }
+        
+        return filteredRegions
     }
 }
