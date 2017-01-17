@@ -10,7 +10,9 @@ import UIKit
 
 class ProvinceDetailViewController: UIViewController {
 
-    var detailDescriptionLabel = UILabel()
+    let backgroundImageView = UIImageView()
+    let stateImageView = UIImageView()
+    let detailDescriptionLabel = UILabel()
 
     func configureView() {
         if let province = self.province {
@@ -35,14 +37,34 @@ class ProvinceDetailViewController: UIViewController {
     
     override func loadView() {
         self.view = UIView()
-        view.backgroundColor = .lightGray
+        self.view.backgroundColor = .white
+        
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        stateImageView.translatesAutoresizingMaskIntoConstraints = false
         detailDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(detailDescriptionLabel)
+        self.view.addSubview(backgroundImageView)
+        self.view.addSubview(stateImageView)
+        
+        backgroundImageView.image = #imageLiteral(resourceName: "seattle")
+        backgroundImageView.contentMode = .scaleAspectFill
+        
+        stateImageView.image = #imageLiteral(resourceName: "washington")
+        stateImageView.contentMode = .scaleAspectFit
+
         
         NSLayoutConstraint.activate([
             detailDescriptionLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            detailDescriptionLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            detailDescriptionLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            
+            backgroundImageView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            backgroundImageView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            backgroundImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.4),
+            
+            stateImageView.rightAnchor.constraint(equalTo: backgroundImageView.rightAnchor, constant: -10),
+            stateImageView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -10)
         ])
         
         self.configureView()
@@ -52,6 +74,12 @@ class ProvinceDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
+        
+        stateImageView.layer.shadowColor = UIColor.black.cgColor
+        stateImageView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        stateImageView.layer.shadowOpacity = 0.7
+        stateImageView.layer.shadowRadius = 2
+        stateImageView.layer.masksToBounds = false
     }
 
     override func didReceiveMemoryWarning() {

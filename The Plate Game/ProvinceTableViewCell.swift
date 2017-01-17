@@ -13,18 +13,25 @@ class ProvinceTableViewCell: UITableViewCell {
     
     var provinceNameLabel = UILabel()
     var provinceNicknameLabel = UILabel()
+    var provinceImageView = UIImageView()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let stackView = UIStackView(arrangedSubviews: [provinceNameLabel, provinceNicknameLabel])
+        let horizontalStackView = UIStackView(arrangedSubviews: [stackView, provinceImageView])
         
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
         stackView.spacing = 4
         
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.distribution = .fill
+        horizontalStackView.alignment = .fill
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         provinceNameLabel.translatesAutoresizingMaskIntoConstraints = false
         provinceNicknameLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -33,15 +40,21 @@ class ProvinceTableViewCell: UITableViewCell {
         
         provinceNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         
-        self.addSubview(stackView)
+        provinceImageView.image = #imageLiteral(resourceName: "washington")
+        provinceImageView.contentMode = .scaleAspectFit
+        
+        self.addSubview(horizontalStackView)
         
         let margins = self.layoutMarginsGuide
         
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: margins.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
+            horizontalStackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            horizontalStackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+            horizontalStackView.topAnchor.constraint(equalTo: margins.topAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            
+            provinceImageView.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: 0.2),
+            provinceImageView.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
     
