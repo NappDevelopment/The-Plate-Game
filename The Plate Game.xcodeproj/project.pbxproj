@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		706FBAA71DB446E300B7F984 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706FBAA61DB446E300B7F984 /* AppCoordinator.swift */; };
+		709EF18D1E1F22A70095FE96 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709EF18C1E1F22A70095FE96 /* Region.swift */; };
 		70C4A47F1DA6FC160037FF8C /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */; };
 		70C4A4811DA701F80037FF8C /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4801DA701F80037FF8C /* RegionManager.swift */; };
 		70C4A4851DA753100037FF8C /* ProvinceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4A4841DA753100037FF8C /* ProvinceTableViewCell.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		706FBAA61DB446E300B7F984 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		709EF18C1E1F22A70095FE96 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		70C4A4801DA701F80037FF8C /* RegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
 		70C4A4841DA753100037FF8C /* ProvinceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				70C4A4801DA701F80037FF8C /* RegionManager.swift */,
+				709EF18C1E1F22A70095FE96 /* Region.swift */,
 				70C4A47E1DA6FC160037FF8C /* PersistenceManager.swift */,
 			);
 			name = Model;
@@ -241,7 +244,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Napp Development";
 				TargetAttributes = {
 					70D6B2B41DA43BCD00694B14 = {
@@ -318,6 +321,7 @@
 				706FBAA71DB446E300B7F984 /* AppCoordinator.swift in Sources */,
 				70C4A4811DA701F80037FF8C /* RegionManager.swift in Sources */,
 				70C4A47F1DA6FC160037FF8C /* PersistenceManager.swift in Sources */,
+				709EF18D1E1F22A70095FE96 /* Region.swift in Sources */,
 				70D6B2BC1DA43BCD00694B14 /* The_Plate_Game.xcdatamodeld in Sources */,
 				70D6B2B91DA43BCD00694B14 /* AppDelegate.swift in Sources */,
 				70D6B2BE1DA43BCD00694B14 /* ProvinceListTableViewController.swift in Sources */,
@@ -388,6 +392,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -438,6 +443,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
